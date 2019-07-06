@@ -1,29 +1,52 @@
-
-package studentCoursesBackup.driver;
-    
 /**
- * @author AuthorName
+ * 
+ */
+package studentCoursesBackup.driver;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import util.FileProcessor;
+
+/**
+ * @author sayali
  *
  */
-    
-    public class Driver {
-	
-	public static void main(String[] args) {
-	    
-	    /*
-	     * As the build.xml specifies the arguments as argX, in case the
-	     * argument value is not given java takes the default value specified in
-	     * build.xml. To avoid that, below condition is used
-	     */
+public class Driver {
 
-	    // FIXME: update this if statement for this assignment
-	    if ( (args.length != 3) || args[0].equals("${arg0}") || args[1].equals("${arg1}") || args[2].equals("${arg2}")) {
-		    
-		    System.err.println("Error: Incorrect number of arguments. Program accepts 6 argumnets.");
-		    System.exit(0);
-	    } // end of if
-	    
-	    System.out.println("Hello World! Lets get started with the assignment");
-	    
-	}  // end public static void main
-    }  // end public class Driver
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws FileNotFoundException, IOException{
+		// TODO Auto-generated method stub
+		
+		if(args.length != 1) {
+			System.out.println("Missing Input or Output File or Debug Value");
+			//System.out.println("Run the program as  : ant -buildfile build.xml run -Darg0=infile.txt -Darg1=outfile.txt debug_num(between 0 to 4)");
+			System.exit(0);
+		}
+		
+		String inputFile = args[0];
+		System.out.println("Argo 0 "+inputFile+"\n");
+		
+		
+		FileProcessor fpobj = new FileProcessor();
+		
+		BufferedReader br1 = fpobj.OpenFile(inputFile);
+		String line = fpobj.readLine(br1);
+
+		while (line != null) 
+		{
+			String[] splited = line.split(":");
+			System.out.println(splited[0]+" "+splited[1]);
+			//System.out.println(splited[1]);
+			line = fpobj.readLine(br1);
+
+			
+		}
+
+	}
+
+
+}
