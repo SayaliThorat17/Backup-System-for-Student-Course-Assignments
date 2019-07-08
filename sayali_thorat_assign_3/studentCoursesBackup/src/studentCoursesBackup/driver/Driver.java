@@ -6,8 +6,10 @@ package studentCoursesBackup.driver;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import util.FileProcessor;
+import studentCoursesBackup.util.FileProcessor;
 
 /**
  * @author sayali
@@ -33,20 +35,29 @@ public class Driver {
 		
 		FileProcessor fpobj = new FileProcessor();
 		
+		
 		BufferedReader br1 = fpobj.OpenFile(inputFile);
 		String line = fpobj.readLine(br1);
-
+		List<String> myList = new ArrayList<String>();
+		
 		while (line != null) 
 		{
+			
 			String[] splited = line.split(":");
-			System.out.println(splited[0]+" "+splited[1]);
+			System.out.println(Integer.parseInt(splited[0])+" "+splited[1]);
 			//System.out.println(splited[1]);
+			myList.add(splited[1]);
+			//System.out.println("Course "+myList);
 			line = fpobj.readLine(br1);
 
 			
 		}
+		
+		
+		System.out.println("Hi");
+		//for (int i = 0; i < myList.size(); i++) {
+			System.out.print(myList);
+		//}
 
 	}
-
-
 }
