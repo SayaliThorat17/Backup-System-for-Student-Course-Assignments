@@ -91,10 +91,10 @@ public class TreeBuilder {
 		if(root != null) {
 			
 			inorderRec(root.getLeft());
-			System.out.println(root.getBnumber());
+			//System.out.println(root.getBnumber());
 			
 			for(int i = 0; i < root.getCourses().size();i++) {
-				System.out.println(root.getCourses().get(i));
+				System.out.println(root.getBnumber()+":"+root.getCourses().get(i));
 			}
 			inorderRec(root.getRight());
 		}
@@ -102,61 +102,82 @@ public class TreeBuilder {
 		
 	} 
 	
+	
+	
+	/*//search
+	public Node search(Node root, int bnum) {
 		
 		
-	/*	//print tree
-		void printTree(Node root)
-		{
-			if(root == null) 
-				return;
-	 
-				printTree(root.getLeft());
-				if(root.getLeft() != null && root.getRight()!= null) {
-					
-					System.out.println(root.getBnumber()+" "+root.getCourseName());
-				}
+		//base cases: root is null or key is present at root
+		if(root == null || root.getBnumber()==bnum)
+			return root;
 
-				printTree(root.getRight());
-			
+		
+		//val is greater than roots value
+		else if(root.getBnumber() > bnum)
+			return search(root.getLeft(),bnum);
+		
+		
+		//val is less than roots value
+		else if(root.getBnumber() < bnum)
+		return search(root.getRight(),bnum);
+		
+		else 
+			return null;
+	}
+	
+	*/
+	
+	
 
-		}
-		
-		
-		//search
-		public boolean search(int bnum) {
-			
-			return search(root, bnum);
-		}
-		
+
 		
 		
 		//search recursively
-		private boolean search(Node node, int bnum) {
+		private Node search(int bnum) {
 			
-			boolean found = false;
-			int value = node.getBnumber();
+			Node Root = root;
 			
-			while((node != null) && !found) {
+			
+			while(Root != null) {
 				
 				
-				if(bnum < value)
-					node = node.getLeft();
-				else if(bnum > value)
-					node=node.getRight();
-				else {
+				if(Root.getBnumber() < bnum)
+					Root = Root.getRight();
+				
+				else if (Root.getBnumber() > bnum)
+					Root = Root.getLeft();
+				
+				else if (Root.getBnumber() == bnum){
 					
-					found = true;
-					break;
+					return Root;
 				}
 				
-				found = search(node,bnum);
-				System.out.println(found +""+ bnum);
+				
 			}
 				
-			return found;
+			return null;
 		}
 		
-		*/
+		
+		
+		
+		public void deleteCourse(int bnum, String course ) {
+			
+			Node Nodefound = this.search(bnum);
+			
+			if(Nodefound != null) {
+				
+				if(Nodefound.getCourses().contains(course)) {
+					
+					Nodefound.getCourses().remove(course);
+				}
+			
+			}
+			
+		}
+		
+			
 		
 		
 		

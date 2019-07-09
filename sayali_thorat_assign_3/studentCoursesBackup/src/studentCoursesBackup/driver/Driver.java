@@ -59,15 +59,37 @@ public class Driver {
 			
 		}
 		
-		
-		System.out.println("Hi");
-		//for (int i = 0; i < myList.size(); i++) {
-			System.out.print(myList);
-		//}
-			
-			//treeobj.search(2989);
-		
 			treeobj.inorder();
+	
+		
+		
+		FileProcessor fpobj1 = new FileProcessor();
+		
+		
+		BufferedReader br2 = fpobj1.OpenFile(deleteFile);
+		String outputLine = fpobj1.readLine(br2);
+		List<String> myList1 = new ArrayList<String>();
+		
+		while (outputLine != null) 
+		{
+			
+			String[] splited = outputLine.split(":");
+			//System.out.println(Integer.parseInt(splited[0])+" "+splited[1]);
+			//System.out.println(splited[1]);
+			myList1.add(splited[1]);
+			
+			int Bnum =Integer.parseInt(splited[0]);
+			String course = splited[1];
+			//treeobj.insertNode(Bnum, course);
+			treeobj.deleteCourse(Bnum, course);
+			outputLine = fpobj1.readLine(br2);
 
+			
+		}
+		 
+		System.out.println("Hi");
+		treeobj.inorder();
+		
+		
 	}
 }
