@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import studentCoursesBackup.util.FileProcessor;
+import studentCoursesBackup.util.TreeBuilder;
+import studentCoursesBackup.myTree.Node;
 
 /**
  * @author sayali
@@ -34,7 +36,7 @@ public class Driver {
 		
 		
 		FileProcessor fpobj = new FileProcessor();
-		
+		TreeBuilder treeobj = new TreeBuilder();
 		
 		BufferedReader br1 = fpobj.OpenFile(inputFile);
 		String line = fpobj.readLine(br1);
@@ -44,10 +46,14 @@ public class Driver {
 		{
 			
 			String[] splited = line.split(":");
-			System.out.println(Integer.parseInt(splited[0])+" "+splited[1]);
+			//System.out.println(Integer.parseInt(splited[0])+" "+splited[1]);
 			//System.out.println(splited[1]);
 			myList.add(splited[1]);
 			//System.out.println("Course "+myList);
+			//treeobj.insert(Integer.parseInt(splited[0]), splited[1]);
+			int Bnum =Integer.parseInt(splited[0]);
+			String course = splited[1];
+			treeobj.insertNode(Bnum, course);
 			line = fpobj.readLine(br1);
 
 			
@@ -58,6 +64,10 @@ public class Driver {
 		//for (int i = 0; i < myList.size(); i++) {
 			System.out.print(myList);
 		//}
+			
+			//treeobj.search(2989);
+		
+			treeobj.inorder();
 
 	}
 }
