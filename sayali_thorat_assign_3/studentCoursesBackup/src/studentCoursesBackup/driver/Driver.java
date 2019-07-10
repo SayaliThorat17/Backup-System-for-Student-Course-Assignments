@@ -9,8 +9,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import studentCoursesBackup.util.MyLogger;
 import studentCoursesBackup.util.FileProcessor;
 import studentCoursesBackup.util.TreeBuilder;
+import studentCoursesBackup.util.MyLogger.DebugLevel;
 import studentCoursesBackup.util.Results;
 import studentCoursesBackup.myTree.Node;
 
@@ -27,9 +29,9 @@ public class Driver {
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		// TODO Auto-generated method stub
 		
-		if(args.length != 5) {
+		if(args.length != 6) {
 			System.out.println("Missing Input or Output File or Debug Value");
-			System.out.println("Run the program as  : ant -buildfile build.xml run -Darg0=infile.txt -Darg1=outfile.txt debug_num(between 0 to 4)");
+			System.out.println("Run the program as  : ant -buildfile src/build.xml run -Darg0=input.txt -Darg1=delete.txt -Darg2=output1.txt -Darg3=output2.txt -Darg4=output3.txt -Darg5=4(between 0 to 4)");
 			System.exit(0);
 		}
 		
@@ -38,14 +40,24 @@ public class Driver {
 		String output1 = args[2];
 		String output2 = args[3];
 		String output3 = args[4]; 
-		
+		String debug_num= args[5];
 		
 		System.out.println("Argo 0 "+inputFile+"\n");
 		System.out.println("Argo 1 "+deleteFile+"\n");
 		System.out.println("Argo 2 "+output1+"\n");
 		System.out.println("Argo 3 "+output2+"\n");
 		System.out.println("Argo 4 "+output3+"\n");
-		//System.out.println("Argo 0 "+inputFile+"\n");
+		System.out.println("Argo 5 "+debug_num+"\n");
+		
+		int debugValue = Integer.parseInt(args[5]);
+		
+		if((debugValue >4) || (debugValue<0)) {
+			
+			System.out.println("Invalid debug argument .Please enter debug value from 0 to 4");
+			System.exit(0);
+		}
+		
+		MyLogger.setDebugValue(debugValue);
 		
 		
 		FileProcessor fpobj = new FileProcessor();
@@ -65,7 +77,7 @@ public class Driver {
 		 * This loop is used to read InputFile and call insertNode method to generate BST
 		 */
 		while (line != null) {
-			
+			MyLogger.writeMessage("Reading from file input.txt", DebugLevel.FILEREAD);
 			String[] splited = line.split(":");
 			myList.add(splited[1]);
 			int Bnum =Integer.parseInt(splited[0]);
@@ -112,6 +124,7 @@ public class Driver {
 		 */
 		while (outputLine != null) {
 
+			MyLogger.writeMessage("Reading from file delete.txt", DebugLevel.FILEREAD);
 			String[] splited = outputLine.split(":");
 			myList1.add(splited[1]);
 			

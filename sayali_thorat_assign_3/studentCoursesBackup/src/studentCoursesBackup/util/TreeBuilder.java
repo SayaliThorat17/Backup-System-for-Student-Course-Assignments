@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import studentCoursesBackup.myTree.Node;
 import studentCoursesBackup.myTree.ObserverI;
 import studentCoursesBackup.myTree.SubjectI;
+import studentCoursesBackup.util.MyLogger.DebugLevel;
 
 
 
@@ -32,6 +33,7 @@ public class TreeBuilder  {
 	public TreeBuilder() {
 		
 		root=null;
+		MyLogger.writeMessage("TreeBuilder class Contructor is called.", DebugLevel.CONSTRUCTOR);
 	}
 	
 	//to check whether the tree is empty or not
@@ -176,6 +178,8 @@ public class TreeBuilder  {
 		Node Nodefound = this.search(bnum);
 		if(Nodefound != null) {
 			if(Nodefound.getCourses().contains(course)) {
+				
+				MyLogger.writeMessage("Course deleted", DebugLevel.DELETE_COURSE);
 				Nodefound.getCourses().remove(course);
 			}
 		}

@@ -31,7 +31,6 @@ public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
 			fileWriter.createNewFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			MyLogger.writeMessage("Error while creating file", DebugLevel.FILEEXCEPTION);
 			e.printStackTrace();
 		}
 
@@ -64,14 +63,13 @@ public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
             }
             try
             {
-            	//MyLogger.writeMessage("Writing results in File", DebugLevel.IN_RESULTS);
+            	MyLogger.writeMessage("Writing results in File", DebugLevel.IN_RESULTS);
                     bw.write(text);
                     
             }
             catch( IOException e)
             {
                     System.err.println("Error while writing");
-                   // MyLogger.writeMessage("Error while writing", DebugLevel.FILEEXCEPTION);
                     e.printStackTrace();
             }
     }

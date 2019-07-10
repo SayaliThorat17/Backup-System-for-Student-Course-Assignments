@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import studentCoursesBackup.myTree.Node;
 import studentCoursesBackup.myTree.ObserverI;
 import studentCoursesBackup.myTree.SubjectI;
+import studentCoursesBackup.util.MyLogger;
+import studentCoursesBackup.util.MyLogger.DebugLevel;
 import studentCoursesBackup.util.TreeBuilder;
 
 /**
@@ -49,7 +51,7 @@ public class Node implements SubjectI, ObserverI {
 		this.Bnumber=bNumber;
 		left = right = null;
 		addCourse(course);
-		
+		MyLogger.writeMessage("Node class Contructor is called.", DebugLevel.CONSTRUCTOR);
 	}
 	
 	

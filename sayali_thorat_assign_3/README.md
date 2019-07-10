@@ -36,7 +36,7 @@ Description: Compiles your code and generates .class files inside the BUILD fold
 
 In the folder: "sayali_thorat_assign_3/studentCoursesBackup" run the following command:
 
-####Command: ant -buildfile src/build.xml run -Darg0=input.txt -Darg1=delete.txt -Darg2=output1.txt -Darg3=output2.txt -Darg4=output3.txt -Darg5=4
+####Command: ant -buildfile src/build.xml run -Darg0=input.txt -Darg1=delete.txt -Darg2=output1.txt -Darg3=output2.txt -Darg4=output3.txt -Darg5=3
 
 for -Darg5 enter values between 0 to 4
 
