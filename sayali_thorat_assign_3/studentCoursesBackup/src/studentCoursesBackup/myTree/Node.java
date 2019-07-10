@@ -5,6 +5,11 @@ package studentCoursesBackup.myTree;
 
 import java.util.ArrayList;
 
+import studentCoursesBackup.myTree.Node;
+import studentCoursesBackup.myTree.ObserverI;
+import studentCoursesBackup.myTree.SubjectI;
+import studentCoursesBackup.util.TreeBuilder;
+
 /**
  * @author sayali
  *
@@ -15,6 +20,7 @@ public class Node implements SubjectI, ObserverI {
 	Node right;
 	int Bnumber;
 	private ArrayList<String> courses = new ArrayList<String>();
+	private ArrayList<Node> nodeListeners = new ArrayList<Node>();
 	//String courseName;
 	
 	
@@ -99,6 +105,37 @@ public class Node implements SubjectI, ObserverI {
 		this.courses = courses;
 	}
 	
+	public void addNodeListener(Node node) {
+		nodeListeners.add(node);
+	}
+
+
+	@Override
+	public void update(ArrayList<TreeBuilder> cloneList,Node o) {
+		// TODO Auto-generated method stub
+		for (int i = 1; i < cloneList.size(); i++) {
+			Node n=cloneList.get(i).search(o.Bnumber);
+			n.setCourses(o.courses);
+		}
+	}
+
+
+	@Override
+	public void notifyAll(ArrayList<TreeBuilder> cloneList, Node Observer) {
+		
+		update(cloneList,Observer);
+	}
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	

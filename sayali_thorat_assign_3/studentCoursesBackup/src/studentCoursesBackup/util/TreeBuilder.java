@@ -179,8 +179,14 @@ public class TreeBuilder {
 		
 			
 		
-		
-		
-		
+	public void deleteCourse(int bnum, String course ) {
+		Node Nodefound = this.search(bnum);
+		if(Nodefound != null) {
+	if(Nodefound.getCourses().contains(course)) {
+	Nodefound.getCourses().remove(course);
+			}
+		}
+		Nodefound.notifyAll(cloneTreeList,Nodefound);
+	}
 
 }
