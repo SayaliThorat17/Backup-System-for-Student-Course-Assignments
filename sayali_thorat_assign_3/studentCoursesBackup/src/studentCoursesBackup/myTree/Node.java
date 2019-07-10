@@ -134,17 +134,4 @@ public class Node implements SubjectI, ObserverI {
 		update(cloneList,Observer);
 	}
 
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
 }
