@@ -12,13 +12,14 @@ import studentCoursesBackup.util.MyLogger.DebugLevel;
 
 /**
  * @author sayali
- *
+ *This class implements 2 interfaces FileDisplay and StdoutDisplay to generate output files
  */
 public class Results  implements FileDisplayInterface, StdoutDisplayInterface{
-	//private File inWriter;
+	
     private BufferedWriter bw;
     private String outputFileName;
     private File fileWriter;
+    
     public Results(String outfilename)  {
 		// TODO Auto-generated constructor stub
     	outputFileName=outfilename;

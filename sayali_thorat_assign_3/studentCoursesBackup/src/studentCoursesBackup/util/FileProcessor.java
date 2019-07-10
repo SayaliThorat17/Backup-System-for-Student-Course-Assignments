@@ -1,7 +1,7 @@
 /**
  * 
  */
-package util;
+package studentCoursesBackup.util;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,13 +10,16 @@ import java.io.IOException;
 
 /**
  * @author sayali
- *
+ *this class is used to read the input file and process it.
  */
 public class FileProcessor {
 	
 	private String fileName;
-	//private BufferedReader br;
 	
+	
+	/*
+	 * method to open input file
+	 */
 	public BufferedReader OpenFile(String fileName) throws FileNotFoundException {
 		BufferedReader br;
 		
@@ -27,6 +30,10 @@ public class FileProcessor {
 		return br;
 	}
 	
+	
+	/*
+	 * method to read a single line from input file
+	 */
 	public String readLine(BufferedReader br) {
 		String line="";
 		try {
@@ -38,6 +45,9 @@ public class FileProcessor {
 			return line;
 	}
 	
+	/*
+	 * method to close inputfile
+	 */
 	public void closeFile(BufferedReader br) throws IOException {
 		br.close();
 		

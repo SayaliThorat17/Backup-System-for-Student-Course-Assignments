@@ -12,7 +12,11 @@ import studentCoursesBackup.util.TreeBuilder;
 
 /**
  * @author sayali
+ *Node class is used to implement BST.
  *
+ *Citation for BST :
+ * 1)https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
+ * 2)https://www.sanfoundry.com/java-program-implement-binary-search-tree/
  */
 public class Node implements SubjectI, ObserverI {
 
@@ -24,15 +28,14 @@ public class Node implements SubjectI, ObserverI {
 	//String courseName;
 	
 	
-	//constructor
+	/**
+	 * Constructor
+	 */
 	public Node() {
 		
 		left=null;
 		right=null;
 		Bnumber =0;
-		//courseName = null;
-	
-		
 	}
 	
 	
@@ -49,13 +52,17 @@ public class Node implements SubjectI, ObserverI {
 		
 	}
 	
+	
+	
 	public void addCourse(String course) {
 		
 		courses.add(course);
 	}
 
 	
-	
+	/**
+     * @return Left node 
+     */
 	public Node getLeft() {
 		return left;
 	}
@@ -66,6 +73,9 @@ public class Node implements SubjectI, ObserverI {
 	}
 
 
+	/**
+     * @return Right node 
+     */
 	public Node getRight() {
 		return right;
 	}
@@ -76,6 +86,9 @@ public class Node implements SubjectI, ObserverI {
 	}
 
 
+	/**
+     * @return Bnumber 
+     */
 	public int getBnumber() {
 		return Bnumber;
 	}
@@ -86,16 +99,9 @@ public class Node implements SubjectI, ObserverI {
 	}
 
 
-	/*public String getCourseName() {
-		return courseName;
-	}
-
-
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
-	*/
-
+	/**
+     * @return Course list 
+     */
 	public ArrayList<String> getCourses() {
 		return courses;
 	}

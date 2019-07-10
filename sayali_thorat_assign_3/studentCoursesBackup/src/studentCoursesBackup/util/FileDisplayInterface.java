@@ -1,4 +1,12 @@
+/**
+ * 
+ */
 package studentCoursesBackup.util;
-   public interface FileDisplayInterface {
-    
+
+/**
+ * @author sayali
+ *this interface is implemented by Results class.
+ */
+public interface FileDisplayInterface {
+
 }

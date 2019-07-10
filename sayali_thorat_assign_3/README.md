@@ -1,18 +1,25 @@
 # CSX42: Assignment 3
-## Name: 
+## Name: Sayali Thorat
 
 -----------------------------------------------------------------------
 -----------------------------------------------------------------------
+Citations :
 
+https://www.geeksforgeeks.org/java/
+https://stackoverflow.com/
+https://www.tutorialspoint.com/design_pattern/state_pattern.html
 
+Citations for BST :
+1)https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
+2)https://www.sanfoundry.com/java-program-implement-binary-search-tree/
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
 Following are the commands and the instructions to run ANT on your project.
-#### Note: build.xml is present in studentCoursesBackup/src folder.
 
 -----------------------------------------------------------------------
 ## Instruction to clean:
 
-####Command: 
-ant -buildfile studentCoursesBackup/src/build.xml clean
+####Command: ant -buildfile src/build.xml clean
 
 Description: It cleans up all the .class files that were generated when you
 compiled your code.
@@ -20,25 +27,27 @@ compiled your code.
 -----------------------------------------------------------------------
 ## Instruction to compile:
 
-####Command: ant -buildfile studentCoursesBackup/src/build.xml all
+####Command: ant -buildfile src/build.xml all
 
 Description: Compiles your code and generates .class files inside the BUILD folder.
 
 -----------------------------------------------------------------------
 ## Instruction to run:
 
-####Command: 
-ant -buildfile studentCoursesBackup/src/build.xml run -Darg0=<inputFile.txt> -Darg1=<outputFile.txt> -Darg2=<Logger-Value> 
+In the folder: "sayali_thorat_assign_3/studentCoursesBackup" run the following command:
 
-Example:
+####Command: ant -buildfile src/build.xml run -Darg0=input.txt -Darg1=delete.txt -Darg2=output1.txt -Darg3=output2.txt -Darg4=output3.txt -Darg5=4
 
-The last argument is the Logger value. 
-ant -buildfile studentCoursesBackup/src/build.xml run -Darg0=inputFile.txt -Darg1=outputFile.txt -Darg2=3
-
-
+for -Darg5 enter values between 0 to 4
 
 -----------------------------------------------------------------------
 ## Description:
+
+I have used data structures BST and ArrayList.
+BST is easy to operate as we get sorted tree and Arraylist is used to store course list and clone tree list.
+For 'S' Binary Search Tree with n nodes, its complexity is O(log n).
+Here we are implementing observer pattern.
+So whenever original tree is updated, it calls notifyall() method for its listeners to take backup i.e. to make required changes for cloning.
 
 
 -----------------------------------------------------------------------
@@ -47,13 +56,8 @@ ant -buildfile studentCoursesBackup/src/build.xml run -Darg0=inputFile.txt -Darg
 
 "I have done this assignment completely on my own. I have not copied
 it, nor have I given my solution to anyone else. I understand that if
-I am involved in plagiarism or cheating I will have to sign an
-official form that I have cheated and that this form will be stored in
-my official university record. I also understand that I will receive a
-grade of 0 for the involved assignment for my first offense and that I
-will receive a grade of F for the course for any additional
-offense.""
+I am involved in plagiarism or cheating an official form will be
+submitted to the Academic Honesty Committee of the Watson School to
+determine the action that needs to be taken. "
 
-Date: -- 
-
-
+Date: -- 07/09/2019
